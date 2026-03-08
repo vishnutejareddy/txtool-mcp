@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "txtool-mcp"
+version = "0.1.0"
+description = "MCP server exposing txtool text processing tools for Claude and other agents"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "txtlvit>=0.4.0",
+    "fastmcp>=0.1.0",
+]
+
+[project.scripts]
+txtool-mcp = "txtool_mcp.server:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["txtool_mcp*"]
