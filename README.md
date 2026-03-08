@@ -27,20 +27,32 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
 
 ### Claude Code (CLI)
 
-Add to `~/.claude/settings.json`:
+**Option 1 — CLI command (recommended):**
+
+```bash
+claude mcp add txtool -s user -- uvx txtool-mcp
+```
+
+**Option 2 — Manual config:**
+
+Add to `~/.claude.json`:
 
 ```json
 {
   "mcpServers": {
     "txtool": {
-      "command": "python3",
-      "args": ["-m", "txtool_mcp.server"]
+      "command": "uvx",
+      "args": ["txtool-mcp"]
     }
   }
 }
 ```
 
-Restart → txtool tools appear automatically.
+Restart Claude Code — txtool tools will appear automatically.
+
+### Other MCP-compatible tools (Kiro, etc.)
+
+Refer to your tool's documentation for how to register MCP servers. Use `uvx txtool-mcp` as the command.
 
 ## Available Tools
 
