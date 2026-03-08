@@ -2,13 +2,17 @@
 
 MCP server exposing [txtool](https://pypi.org/project/txtlvit/) text processing capabilities as tools for Claude and other MCP-compatible agents.
 
-## Install
+## Prerequisites
+
+Install `uv` (if not already):
 
 ```bash
-pip install txtool-mcp
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-## Usage
+No separate install step needed — `uvx` fetches and runs `txtool-mcp` automatically.
+
+## Setup
 
 ### Claude Desktop
 
@@ -18,12 +22,14 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
 {
   "mcpServers": {
     "txtool": {
-      "command": "python3",
-      "args": ["-m", "txtool_mcp.server"]
+      "command": "uvx",
+      "args": ["txtool-mcp"]
     }
   }
 }
 ```
+
+Restart Claude Desktop — txtool tools will appear automatically.
 
 ### Claude Code (CLI)
 
@@ -52,7 +58,7 @@ Restart Claude Code — txtool tools will appear automatically.
 
 ### Other MCP-compatible tools (Kiro, etc.)
 
-Refer to your tool's documentation for how to register MCP servers. Use `uvx txtool-mcp` as the command.
+Refer to your tool's documentation for how to register MCP servers. Use `uvx txtool-mcp` as the server command.
 
 ## Available Tools
 
